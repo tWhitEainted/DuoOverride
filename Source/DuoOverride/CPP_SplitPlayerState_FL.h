@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-//DATA FOR BOTH PLAYERS
+// DATA FOR BOTH PLAYERS
+
 
 #pragma once
 
@@ -15,6 +16,7 @@ UCLASS()
 class DUOOVERRIDE_API ACPP_SplitPlayerState_FL : public APlayerState
 {
 	GENERATED_BODY()
+	
 	
 public:
 	UPROPERTY(BlueprintReadOnly, Category = "SplitScreen")

@@ -7,6 +7,7 @@
 #include "GameFramework/PlayerController.h"
 #include "CPP_CustomViewportClient_FL.h"
 
+
 // Sets default values
 ACPP_Character_FL::ACPP_Character_FL()
 {
@@ -36,10 +37,11 @@ void ACPP_Character_FL::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 }
 
+
 void ACPP_Character_FL::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-
+	
 	if (APlayerController* PC = Cast<APlayerController>(NewController))
 	{
 		auto* LP = PC->GetLocalPlayer();

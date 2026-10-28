@@ -14,10 +14,11 @@ class DUOOVERRIDE_API ACPP_Character_FL : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ACPP_Character_FL();
-
+	
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	class UInputMappingContext* DefaultMappingContext;
-
+	
 	virtual void PossessedBy(AController* NewController) override;
 
 protected:

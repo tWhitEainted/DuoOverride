@@ -3,20 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameMode.h"
-#include "CPP_MultiplayerGameMode_FL.generated.h"
+#include "GameFramework/GameModeBase.h"
+#include "CPP_GameMode_FL.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DUOOVERRIDE_API ACPP_MultiplayerGameMode_FL : public AGameMode
+class DUOOVERRIDE_API ACPP_GameMode_FL : public AGameModeBase
 {
 	GENERATED_BODY()
 	
 public:
-	ACPP_MultiplayerGameMode_FL();
-
+	ACPP_GameMode_FL();
+	
 protected:
 	virtual void BeginPlay() override;
+	
 };

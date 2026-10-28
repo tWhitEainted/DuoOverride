@@ -8,27 +8,27 @@
 void UCPP_CustomViewportClient_FL::LayoutPlayers()
 {
 	Super::LayoutPlayers(); // let the engine do its thang (normal layout)
-
+	
 	const TArray<ULocalPlayer*>& Players = GetGameInstance()->GetLocalPlayers();
-
+	
 	if (Players.Num() != 2) return; // failsafe, if there's more than 2 players (for some reason idk)
-
+	
 	const float R = FMath::Clamp(SplitRatio, 0.05f, 0.95f);
-
-
+	
+	
 	if (b_VerticalSplit) // left right split
 	{
-		Players[0]->Origin = FVector2D(0.f, 0.f);
-		Players[0]->Size = FVector2D(R, 1.f);
-		Players[1]->Origin = FVector2D(R, 0.f);
-		Players[1]->Size = FVector2D(1.f - R, 1.f);
+		Players[0]-> Origin = FVector2D(0.f, 0.f);
+		Players[0]-> Size = FVector2D(R, 1.f);
+		Players[1]-> Origin = FVector2D(R, 0.f);
+		Players[1]-> Size = FVector2D(1.f - R, 1.f);
 	}
 	else // top bottom split	
 	{
-		Players[0]->Origin = FVector2D(0.f, 0.f);
-		Players[0]->Size = FVector2D(1.f, R);
-		Players[1]->Origin = FVector2D(0.f, R);
-		Players[1]->Size = FVector2D(1.f, 1.f - R);
+		Players[0]-> Origin = FVector2D(0.f, 0.f);
+		Players[0]-> Size = FVector2D(1.f, R);
+		Players[1]-> Origin = FVector2D(0.f, R);
+		Players[1]-> Size = FVector2D(1.f, 1.f - R);
 	}
 }
 
@@ -51,10 +51,9 @@ void UCPP_CustomViewportClient_FL::Tick(float DeltaTime)
 
 void UCPP_CustomViewportClient_FL::SetSplitRatio(float NewRatio)
 {
-	//if (UWorld* World = GetWorld())
 	if (UWorld* CurrentWorld = GetWorld())
 	{
-		if (UCPP_CustomViewportClient_FL* VC = Cast<UCPP_CustomViewportClient_FL>(World->GetGameViewport()))
+		if (UCPP_CustomViewportClient_FL* VC = Cast<UCPP_CustomViewportClient_FL>(CurrentWorld->GetGameViewport()))
 		{
 			VC->SetTargetRatio(NewRatio);
 		}
@@ -77,4 +76,4 @@ void UCPP_CustomViewportClient_FL::SetVerticalSplit(bool b_Vertical)
 	b_VerticalSplit = b_Vertical;
 	LayoutPlayers();
 }
-
+	
